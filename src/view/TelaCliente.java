@@ -48,7 +48,23 @@ public class TelaCliente extends JFrame {
 		contaButton.setBounds(219, 11, 70, 23);
 		barraInferiorPanel.add(contaButton);
 		
-		setVisible(false);
+		setVisible(true);
+	}
+
+	public JButton getHomeButton() {
+		return homeButton;
+	}
+
+	public JButton getMenuButton() {
+		return menuButton;
+	}
+
+	public JButton getContaButton() {
+		return contaButton;
+	}
+
+	public JPanel getBarraInferiorPanel() {
+		return barraInferiorPanel;
 	}
 	
 }

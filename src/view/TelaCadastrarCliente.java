@@ -58,7 +58,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 	public TelaCadastrarCliente() {
 		setTitle("QuantumPiza");
 		
-		setBounds(100, 100, 321, 564);
+		setBounds(100, 100, 321, 590);
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -213,6 +213,34 @@ public class TelaCadastrarCliente extends TelaCliente {
 		
 		setVisible(true);
 		
+	}
+
+	public ButtonGroup getButtonGroup() {
+		return buttonGroup;
+	}
+
+	public JButton getCadastrarButton() {
+		return cadastrarButton;
+	}
+
+	public JLabel getTipoDados() {
+		return tipoDados;
+	}
+
+	public JTextField getCidadeField() {
+		return cidadeField;
+	}
+
+	public JTextField getRuaField() {
+		return ruaField;
+	}
+
+	public JTextField getNumeroField() {
+		return numeroField;
+	}
+
+	public JTextField getCepField() {
+		return cepField;
 	}
 
 	public JRadioButton getDadosPessoaisRadioButton() {
