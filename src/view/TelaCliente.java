@@ -20,6 +20,7 @@ public class TelaCliente extends JFrame {
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
+		setResizable(false);
 		
 		barraInferiorPanel = new JPanel();
 		barraInferiorPanel.setLayout(null);
@@ -48,7 +49,7 @@ public class TelaCliente extends JFrame {
 		contaButton.setBounds(219, 11, 70, 23);
 		barraInferiorPanel.add(contaButton);
 		
-		setVisible(true);
+		setVisible(false);
 	}
 
 	public JButton getHomeButton() {

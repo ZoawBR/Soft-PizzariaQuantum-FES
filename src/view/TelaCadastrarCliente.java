@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
@@ -45,7 +46,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 	private JTextField nomeField;
 	private JTextField cpfField;
 	private JTextField loginField;
-	private JTextField senhaField;
+	private JPasswordField senhaField;
 	private JTextField emailField;
 	private JTextField foneField;
 	private JTextField estadoField;
@@ -58,7 +59,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 	public TelaCadastrarCliente() {
 		setTitle("QuantumPiza");
 		
-		setBounds(100, 100, 321, 590);
+		setBounds(100, 100, 321, 564);
 		setLayout(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
@@ -147,7 +148,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 		senhaLabel.setBounds(70, 287, 46, 14);
 		dadosPesssoaisPanel.add(senhaLabel);
 		
-		senhaField = new JTextField(10);
+		senhaField = new JPasswordField(10);
 		senhaField.setBounds(50, 306, 86, 20);
 		senhaField.setColumns(10);
 		dadosPesssoaisPanel.add(senhaField);
@@ -211,7 +212,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 		dadosLocalPanel.setVisible(false);
 		dadosPesssoaisPanel.setVisible(true);
 		
-		setVisible(true);
+		setVisible(false);
 		
 	}
 
@@ -267,7 +268,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 		return loginField;
 	}
 
-	public JTextField getSenhaField() {
+	public JPasswordField getSenhaField() {
 		return senhaField;
 	}
 
@@ -286,5 +287,6 @@ public class TelaCadastrarCliente extends TelaCliente {
 	public JPanel getDadosLocalPanel() {
 		return dadosLocalPanel;
 	}
+	
 	
 }

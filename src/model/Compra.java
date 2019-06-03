@@ -1,6 +1,6 @@
 package model;
 
-public class Compra extends OrdemServico{
+public class Compra extends OrdemServico {
 
 	public Compra(String nomeCliente, String cpf, String pedido, int preco) {
 		super(nomeCliente, cpf, pedido, preco); 
