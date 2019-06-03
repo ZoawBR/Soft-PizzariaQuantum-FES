@@ -18,7 +18,7 @@ public class TelaCliente extends JFrame {
 	public TelaCliente() {
 		setBounds(100, 100, 321, 564);
 		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		

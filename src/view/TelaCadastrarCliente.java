@@ -61,7 +61,6 @@ public class TelaCadastrarCliente extends TelaCliente {
 		
 		setBounds(100, 100, 321, 564);
 		setLayout(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 				
 		cadatraseButton = new JLabel("Cadastre-se já  :)");

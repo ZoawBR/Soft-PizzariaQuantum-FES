@@ -4,6 +4,7 @@ import control.Controller;
 import view.TelaCadastrarCliente;
 import view.TelaCliente;
 import view.TelaLoginCliente;
+import view.TelaPrincipalSoftware;
 import view.TelaSite;
 
 public class App {
@@ -13,7 +14,10 @@ public class App {
 		TelaSite telaSite = new TelaSite();
 		TelaCliente telaCliente = new TelaCliente();
 		TelaLoginCliente telaLoginCliente = new TelaLoginCliente();
-		Controller controller = new Controller(telaCadastrarCliente, telaSite, telaCliente, telaLoginCliente);
+		TelaPrincipalSoftware telaPrincipalSoftware = new TelaPrincipalSoftware();
+		
+		Controller controller = new Controller(telaCadastrarCliente, telaSite, telaCliente, telaLoginCliente,
+											   telaPrincipalSoftware);
 		
 	}	
 }

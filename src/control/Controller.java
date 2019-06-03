@@ -9,6 +9,7 @@ import view.TelaCadastrarCliente;
 import view.TelaCliente;
 import view.TelaLoginCliente;
 import view.TelaMensagem;
+import view.TelaPrincipalSoftware;
 import view.TelaSite;
 
 public class Controller implements ActionListener {
@@ -17,13 +18,15 @@ public class Controller implements ActionListener {
 	private TelaSite telaSite;
 	private TelaCliente telaCliente;
 	private TelaLoginCliente telaLoginCliente;
+	private TelaPrincipalSoftware telaPrincipalSoftware;
 		
 	public Controller(TelaCadastrarCliente telaCadastrarCliente, TelaSite telaSite, TelaCliente telaCliente,
-					  TelaLoginCliente telaLoginCliente) {
+					  TelaLoginCliente telaLoginCliente, TelaPrincipalSoftware telaPrincipalSoftware) {
 		this.telaCadastrarCliente = telaCadastrarCliente;
 		this.telaSite = telaSite;
 		this.telaCliente = telaCliente;
 		this.telaLoginCliente = telaLoginCliente;
+		this.telaPrincipalSoftware = telaPrincipalSoftware;
 		
 		control();
 	}
@@ -154,6 +157,15 @@ public class Controller implements ActionListener {
 			}
 		});
 		
+		
+		// Tela Principal Software
+		telaPrincipalSoftware.getClienteButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				telaSite.setVisible(true);
+			}
+		});
 	}
 	
 

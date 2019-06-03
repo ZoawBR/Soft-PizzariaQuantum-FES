@@ -3,9 +3,13 @@ package view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 public class TelaSite extends TelaCliente {
 	
@@ -14,6 +18,8 @@ public class TelaSite extends TelaCliente {
 	private JButton homeButton;
 	private JButton menuButton;
 	private JButton contaButton;
+	
+	private JLabel logoImagemLabel;
 	
 	public TelaSite() {
 		setTitle("QuantumPiza");
@@ -24,10 +30,13 @@ public class TelaSite extends TelaCliente {
 		loginButton = new JButton("Login");
 		loginButton.setBounds(180, 468, 111, 23);
 		
+		logoImagemLabel = new JLabel();
+		logoImagemLabel.setIcon(new ImageIcon(TelaSite.class.getResource("/imagem/logo.PNG")));
+		logoImagemLabel.setBounds(0, 0, 313, 285);
+		
 		add(cadastrarButton);
 		add(loginButton);
-		
-		setVisible(true);
+		add(logoImagemLabel);
 	}
 
 	public JButton getCadastrarButton() {
