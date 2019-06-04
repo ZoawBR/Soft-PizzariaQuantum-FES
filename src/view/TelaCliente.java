@@ -21,6 +21,7 @@ public class TelaCliente extends JFrame {
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
+		setBackground(Color.white);
 		
 		barraInferiorPanel = new JPanel();
 		barraInferiorPanel.setLayout(null);

@@ -4,24 +4,21 @@ import java.util.ArrayList;
 
 public class BaseDadosFuncionario {
 	
-	private static ArrayList<Funcionario> baseFuncionario = new ArrayList<Funcionario>();
+	public static ArrayList<Funcionario> baseFuncionario = new ArrayList<Funcionario>();
 	
 	public static boolean addFuncionario(Funcionario funcionario) {
-		if (baseFuncionario.add(funcionario)) {
-			return true;
-		}else{
+		
+		if (existFuncionario(funcionario)) {
 			return false;
 		}
+		return baseFuncionario.add(funcionario);
 	}
 	
 	public static boolean deletFuncionario(Funcionario funcionario) {
-		if (existFuncionario(funcionario)) {
-			for (Funcionario func : baseFuncionario) {
-				if (func.getCpf().equals(funcionario.getCpf())) {
-					baseFuncionario.remove(func);
-					return true;
-				}
-			}
+		
+		Funcionario funcionarioAuxiliar = searchFuncioanrio(funcionario);
+		if (funcionarioAuxiliar != null) {
+			return baseFuncionario.remove(funcionarioAuxiliar);
 		}
 		return false;
 	}
@@ -36,10 +33,10 @@ public class BaseDadosFuncionario {
 	}
 	
 	public static boolean existFuncionario(Funcionario funcionario) {
-		for (Funcionario func : baseFuncionario) {
-			if (func.getCpf().equals(funcionario.getCpf())) {
-				return true;
-			}
+		
+		Funcionario funcionarioAuxiliar = searchFuncioanrio(funcionario);
+		if (funcionarioAuxiliar != null) {
+			return true;
 		}
 		return false;
 	}

@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.BaseDadosCliente;
+import model.BaseDadosFuncionario;
 import model.Cliente;
+import model.Funcionario;
 import view.TelaCadastrarCliente;
 import view.TelaCliente;
+import view.TelaControlePizzaria;
 import view.TelaLoginCliente;
+import view.TelaLoginFuncionario;
 import view.TelaMensagem;
 import view.TelaPrincipalSoftware;
 import view.TelaSite;
@@ -19,14 +23,20 @@ public class Controller implements ActionListener {
 	private TelaCliente telaCliente;
 	private TelaLoginCliente telaLoginCliente;
 	private TelaPrincipalSoftware telaPrincipalSoftware;
+	private TelaLoginFuncionario telaLoginFuncionario;
+	private TelaControlePizzaria telaControlePizzaria;
 		
 	public Controller(TelaCadastrarCliente telaCadastrarCliente, TelaSite telaSite, TelaCliente telaCliente,
-					  TelaLoginCliente telaLoginCliente, TelaPrincipalSoftware telaPrincipalSoftware) {
+					  TelaLoginCliente telaLoginCliente, TelaPrincipalSoftware telaPrincipalSoftware,
+					  TelaLoginFuncionario telaLoginFuncionario, TelaControlePizzaria telaControlePizzaria) {
+		
 		this.telaCadastrarCliente = telaCadastrarCliente;
 		this.telaSite = telaSite;
 		this.telaCliente = telaCliente;
 		this.telaLoginCliente = telaLoginCliente;
 		this.telaPrincipalSoftware = telaPrincipalSoftware;
+		this.telaLoginFuncionario = telaLoginFuncionario;
+		this.telaControlePizzaria = telaControlePizzaria;
 		
 		control();
 	}
@@ -166,6 +176,45 @@ public class Controller implements ActionListener {
 				telaSite.setVisible(true);
 			}
 		});
+		
+		telaPrincipalSoftware.getFuncionarioButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaLoginFuncionario.setVisible(true);
+			}
+		});
+		
+		// ************ Começa Aqui **************************
+		// Tela Login Funcionário
+		telaLoginFuncionario.getLogarButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String login = telaLoginFuncionario.getLoginField().getText();
+				String senha = telaLoginFuncionario.getSenhaField().getText();
+				
+				if (login.equals("admin") && senha.equals("adim")) {
+					
+				}
+				
+				if (BaseDadosFuncionario.verificarSenhaLoginFuncionario(login, senha)) {
+					TelaMensagem.exibirMensagem("Logado com Sucesso");
+					telaControlePizzaria.setVisible(true);
+					telaLoginFuncionario.setVisible(false);
+				}
+				else {
+					TelaMensagem.exibirMensagem("Login ou Senha incorretos");
+				}
+				
+				
+			}
+		});
+		// ************ Termina Aqui ********************
+		
+		
+		// Tela Controle Pizzaria
+		
 	}
 	
 

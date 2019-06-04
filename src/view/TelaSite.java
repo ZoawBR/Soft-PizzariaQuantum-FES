@@ -24,6 +24,8 @@ public class TelaSite extends TelaCliente {
 	public TelaSite() {
 		setTitle("QuantumPiza");
 		
+		setBackground(Color.WHITE);
+		
 		cadastrarButton = new JButton("Cadastra-se");
 		cadastrarButton.setBounds(29, 468, 111, 23);
 		
