@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.ImageIcon;
@@ -28,39 +29,48 @@ public class TelaLoginFuncionario extends JFrame {
 		setLocationRelativeTo(null);
 		setLayout(null);
 		setBounds(100, 100, 315, 257);
+	
 		
 		loginLabel = new JLabel("Login");
 		loginLabel.setFont(new Font("Kristen ITC", Font.PLAIN, 14));
-		loginLabel.setBounds(58, 91, 46, 14);
+		loginLabel.setBounds(58, 91, 46, 20);
+		loginLabel.setBackground(Color.white);
 		add(loginLabel);
 		
 		loginField = new JTextField(10);
 		loginField.setBounds(142, 88, 86, 20);
+		loginField.setBackground(Color.white);
 		add(loginField);
 		
 		senhaLabel = new JLabel("Senha");
 		senhaLabel.setFont(new Font("Kristen ITC", Font.PLAIN, 14));
 		senhaLabel.setBounds(58, 126, 46, 14);
+		senhaLabel.setBackground(Color.white);
 		add(senhaLabel);
 		
 		senhaField = new JPasswordField(10);
 		senhaField.setBounds(142, 120, 86, 20);
+		senhaField.setBackground(Color.white);
 		add(senhaField);
 		
 		mensagemLoginLabel = new JLabel("Login Funcionário");
 		mensagemLoginLabel.setFont(new Font("Tempus Sans ITC", Font.PLAIN, 15));
 		mensagemLoginLabel.setBounds(132, 38, 124, 39);
+		mensagemLoginLabel.setBackground(Color.white);
 		add(mensagemLoginLabel);
 		
-		iconeCadastrarFuncLabel = new JLabel();
-		iconeCadastrarFuncLabel.setIcon(new ImageIcon(TelaLoginFuncionario.class.getResource("/imagem/iconeLoginFuncionario.png")));
-		iconeCadastrarFuncLabel.setBounds(10, 11, 69, 69);
-		add(iconeCadastrarFuncLabel);
 		
 		logarButton = new JButton("Logar");
 		logarButton.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		logarButton.setBackground(Color.white);
 		logarButton.setBounds(99, 173, 91, 23);
 		add(logarButton);
+		
+		iconeCadastrarFuncLabel = new JLabel();
+		iconeCadastrarFuncLabel.setIcon(new ImageIcon(TelaLoginFuncionario.class.getResource("/imagem/iconeLoginFuncionario.png")));
+		iconeCadastrarFuncLabel.setBounds(0,0, 315, 257);
+		iconeCadastrarFuncLabel.setBackground(Color.white);
+		add(iconeCadastrarFuncLabel);
 		
 		setVisible(false);
 		

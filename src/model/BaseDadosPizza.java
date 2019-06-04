@@ -5,6 +5,14 @@ import java.util.ArrayList;
 public class BaseDadosPizza {
 	private static ArrayList<Pizza> basePizza = new ArrayList<Pizza>();
 	
+	public static ArrayList<Pizza> getBasePizza() {
+		return basePizza;
+	}
+
+	public static void setBasePizza(ArrayList<Pizza> basePizza) {
+		BaseDadosPizza.basePizza = basePizza;
+	}
+
 	public static boolean addPizza(Pizza pizza) {
 		if (basePizza.add(pizza)) {
 			return true;
@@ -25,9 +33,9 @@ public class BaseDadosPizza {
 		return false;
 	}
 	
-	public static Pizza searchPizza(Pizza pizza) { 
+	public static Pizza searchPizza(String pizza) { 
 		for (Pizza pizz : basePizza) {
-			if (pizz.getNome().equals(pizza.getNome())) {
+			if (pizz.getSabor().equals(pizza)) {
 				return pizz;
 			}
 		}
@@ -36,7 +44,7 @@ public class BaseDadosPizza {
 	
 	public static boolean existPizza(Pizza pizza) {
 		for (Pizza pizz : basePizza) {
-			if (pizz.getNome().equals(pizza.getNome())) {
+			if (pizz.getSabor().equals(pizza.getSabor())) {
 				return true;
 			}
 		}

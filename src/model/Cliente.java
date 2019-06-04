@@ -40,4 +40,28 @@ public class Cliente extends Pessoa {
 		return numCasa;
 	}
 
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+	public void setNumCasa(int numCasa) {
+		this.numCasa = numCasa;
+	}
+
 }

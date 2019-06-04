@@ -15,16 +15,18 @@ public class TelaPrincipalSoftware extends JFrame {
 	public TelaPrincipalSoftware() {
 		super("Tela Principal");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setLayout(new FlowLayout());
 		setSize(100, 100);
-		setBackground(Color.white);
 		
 		funcionarioButton = new JButton("Funcionário");
+		funcionarioButton.setBackground(Color.white);
 		clienteButton = new JButton("Cliente");
+		clienteButton.setBackground(Color.white);
 		
 		add(funcionarioButton);
 		add(clienteButton);
-		
+		this.setBackground(Color.WHITE);
 		pack();
 		setVisible(true);
 	}

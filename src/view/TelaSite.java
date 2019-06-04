@@ -7,9 +7,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-
-import com.sun.xml.internal.ws.org.objectweb.asm.Label;
 
 public class TelaSite extends TelaCliente {
 	
@@ -24,17 +21,17 @@ public class TelaSite extends TelaCliente {
 	public TelaSite() {
 		setTitle("QuantumPiza");
 		
-		setBackground(Color.WHITE);
-		
 		cadastrarButton = new JButton("Cadastra-se");
+		cadastrarButton.setBackground(Color.white);
 		cadastrarButton.setBounds(29, 468, 111, 23);
 		
 		loginButton = new JButton("Login");
+		loginButton.setBackground(Color.white);
 		loginButton.setBounds(180, 468, 111, 23);
 		
 		logoImagemLabel = new JLabel();
 		logoImagemLabel.setIcon(new ImageIcon(TelaSite.class.getResource("/imagem/logo.PNG")));
-		logoImagemLabel.setBounds(0, 0, 313, 285);
+		logoImagemLabel.setBounds(0, 0, 313, 586);
 		
 		add(cadastrarButton);
 		add(loginButton);

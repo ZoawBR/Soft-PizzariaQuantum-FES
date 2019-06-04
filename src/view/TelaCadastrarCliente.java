@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -29,6 +30,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 	
 	private JButton cadastrarButton;
 	
+	private JLabel logoImagemLabel;
 	private JLabel tipoDados;
 	private JLabel nomeLabel;
 	private JLabel cpfLabel;
@@ -59,15 +61,15 @@ public class TelaCadastrarCliente extends TelaCliente {
 	public TelaCadastrarCliente() {
 		setTitle("QuantumPiza");
 		
-		setBounds(100, 100, 321, 564);
+		setBounds(100, 100, 321, 584);
 		setLayout(null);
 		setLocationRelativeTo(null);
-				
-		cadatraseButton = new JLabel("Cadastre-se já  :)");
-		cadatraseButton.setForeground(Color.DARK_GRAY);
-		cadatraseButton.setFont(new Font("Malgun Gothic", Font.PLAIN, 17));
-		cadatraseButton.setBounds(10, 11, 162, 28);
-		add(cadatraseButton);
+		setBackground(Color.white);
+//		cadatraseButton = new JLabel("Cadastre-se já  :)");
+//		cadatraseButton.setForeground(Color.DARK_GRAY);
+//		cadatraseButton.setFont(new Font("Malgun Gothic", Font.PLAIN, 17));
+//		cadatraseButton.setBounds(10, 11, 162, 28);
+//		add(cadatraseButton);
 		
 		tipoDados = new JLabel("Dados:");
 		tipoDados.setForeground(new Color(0, 0, 0));
@@ -77,10 +79,12 @@ public class TelaCadastrarCliente extends TelaCliente {
 		
 		dadosPessoaisRadioButton = new JRadioButton("Pessoais", true);
 		dadosPessoaisRadioButton.setBounds(83, 98, 89, 35);
+		dadosPessoaisRadioButton.setBackground(Color.WHITE);
 		add(dadosPessoaisRadioButton);
 		
 		dadosLocalRadioButton = new JRadioButton("Físicos");
 		dadosLocalRadioButton.setBounds(176, 104, 73, 23);
+		dadosLocalRadioButton.setBackground(Color.WHITE);
 		add(dadosLocalRadioButton);
 		
 		buttonGroup = new ButtonGroup();
@@ -91,7 +95,7 @@ public class TelaCadastrarCliente extends TelaCliente {
 		dadosPesssoaisPanel.setBounds(57, 139, 191, 338);
 		dadosPesssoaisPanel.setLayout(null);
 		add(dadosPesssoaisPanel);
-		
+
 		nomeLabel = new JLabel("Nome:");
 		nomeLabel.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		nomeLabel.setBounds(70, 11, 46, 14);
@@ -152,7 +156,6 @@ public class TelaCadastrarCliente extends TelaCliente {
 		senhaField.setColumns(10);
 		dadosPesssoaisPanel.add(senhaField);
 		
-		
 		dadosLocalPanel = new JPanel();
 		dadosLocalPanel.setBounds(57, 139, 191, 338);
 		dadosLocalPanel.setLayout(null);
@@ -206,13 +209,71 @@ public class TelaCadastrarCliente extends TelaCliente {
 		cadastrarButton = new JButton("Cadastrar");
 		cadastrarButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		cadastrarButton.setBounds(34, 315, 116, 23);
+		cadastrarButton.setBackground(Color.white);
 		dadosLocalPanel.add(cadastrarButton);
 		
 		dadosLocalPanel.setVisible(false);
 		dadosPesssoaisPanel.setVisible(true);
 		
+		dadosPesssoaisPanel.setBackground(Color.WHITE);
+		dadosLocalPanel.setBackground(Color.WHITE);
+		
+		logoImagemLabel = new JLabel();
+		logoImagemLabel.setIcon(new ImageIcon(TelaSite.class.getResource("/imagem/logocadastrar.PNG")));
+		logoImagemLabel.setBounds(0, 0, 313, 586);
+		add(logoImagemLabel);
+		
+		
 		setVisible(false);
 		
+	}
+
+	public JTextField getEstadoField() {
+		return estadoField;
+	}
+
+	public void setNomeField(JTextField nomeField) {
+		this.nomeField = nomeField;
+	}
+
+	public void setCpfField(JTextField cpfField) {
+		this.cpfField = cpfField;
+	}
+
+	public void setLoginField(JTextField loginField) {
+		this.loginField = loginField;
+	}
+
+	public void setSenhaField(JPasswordField senhaField) {
+		this.senhaField = senhaField;
+	}
+
+	public void setEmailField(JTextField emailField) {
+		this.emailField = emailField;
+	}
+
+	public void setFoneField(JTextField foneField) {
+		this.foneField = foneField;
+	}
+
+	public void setCidadeField(JTextField cidadeField) {
+		this.cidadeField = cidadeField;
+	}
+
+	public void setRuaField(JTextField ruaField) {
+		this.ruaField = ruaField;
+	}
+
+	public void setEstadoField(JTextField estadoField) {
+		this.estadoField = estadoField;
+	}
+
+	public void setNumeroField(JTextField numeroField) {
+		this.numeroField = numeroField;
+	}
+
+	public void setCepField(JTextField cepField) {
+		this.cepField = cepField;
 	}
 
 	public ButtonGroup getButtonGroup() {
@@ -239,12 +300,12 @@ public class TelaCadastrarCliente extends TelaCliente {
 		return numeroField;
 	}
 
-	public JTextField getCepField() {
-		return cepField;
-	}
-
 	public JRadioButton getDadosPessoaisRadioButton() {
 		return dadosPessoaisRadioButton;
+	}
+
+	public JTextField getCepField() {
+		return cepField;
 	}
 
 	public JRadioButton getDadosLocalRadioButton() {

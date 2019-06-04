@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,25 +25,29 @@ public class TelaControlePizzaria extends JFrame {
 		
 		imagemControleSoftwareLabel = new JLabel();
 		imagemControleSoftwareLabel.setIcon(new ImageIcon(TelaControlePizzaria.class.getResource("/imagem/iconeTelaFuncionario.png")));
-		imagemControleSoftwareLabel.setBounds(35, 11, 109, 102);
-		add(imagemControleSoftwareLabel);
+		imagemControleSoftwareLabel.setBounds(0, 0, 193, 305);
 		
 		estoqueButton = new JButton("Estoque");
 		estoqueButton.setBounds(25, 134, 138, 23);
+		estoqueButton.setBackground(Color.white);
 		add(estoqueButton);
 		
 		cadastroPizzaButton = new JButton("Cadastrar Pizza");
 		cadastroPizzaButton.setBounds(25, 168, 138, 23);
+		cadastroPizzaButton.setBackground(Color.white);
 		add(cadastroPizzaButton);
 		
 		pedidosButton = new JButton("Pedidos");
 		pedidosButton.setBounds(25, 202, 138, 23);
+		pedidosButton.setBackground(Color.white);
 		add(pedidosButton);
 		
 		sairButton = new JButton("Sair");
 		sairButton.setBounds(25, 236, 138, 23);
+		sairButton.setBackground(Color.white);
 		add(sairButton);
 		
+		add(imagemControleSoftwareLabel);
 		setVisible(false);
 		
 	}

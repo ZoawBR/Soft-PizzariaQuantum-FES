@@ -18,6 +18,14 @@ public class BaseDadosCliente {
 		}
 	}
 	
+	public static ArrayList<Cliente> getBaseClientes() {
+		return baseClientes;
+	}
+
+	public static void setBaseClientes(ArrayList<Cliente> baseClientes) {
+		BaseDadosCliente.baseClientes = baseClientes;
+	}
+
 	public static boolean deletCliente(Cliente cliente) {
 		
 		Cliente clienteAuxiliar = searchCliente(cliente);

@@ -2,25 +2,16 @@ package model;
 
 public class Pizza {
 	private int codigo, preco;
-	private String nome, tamanho;
+	private String sabor, tamanho;
 	
-	public Pizza(String nome, int codigo, int preco, String tam) {
-		this.nome = nome;
+	public Pizza(String sabor, int codigo, int preco) {
+		this.sabor = sabor;
 		this.codigo = codigo;
 		this.preco = preco;
-		this.tamanho = tamanho;
 	}
 
 	public int getCodigo() {
 		return codigo;
-	}
-
-	public String getTamanho() {
-		return tamanho;
-	}
-
-	public void setTamanho(String tamanho) {
-		this.tamanho = tamanho;
 	}
 
 	public int getPreco() {
@@ -31,15 +22,25 @@ public class Pizza {
 		this.preco = preco;
 	}
 
+	public String getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
+	}
+
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getSabor() {
+		return sabor;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setSabor(String sabor) {
+		this.sabor = sabor;
 	}
+
+
 }

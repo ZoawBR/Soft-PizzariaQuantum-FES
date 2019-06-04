@@ -1,7 +1,9 @@
 package view;
 
+import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
@@ -18,7 +20,12 @@ public class TelaLoginCliente extends TelaCliente {
 	private JButton esqueciSenhaButton;
 	private JButton logarButton;
 	
+	private JLabel logoImagemLabel;
+	
 	public TelaLoginCliente() {
+		
+		
+		setBackground(Color.WHITE);
 		
 		loginLabel = new JLabel("Login");
 		loginLabel.setFont(new Font("Tahoma", Font.PLAIN, 20));
@@ -41,12 +48,19 @@ public class TelaLoginCliente extends TelaCliente {
 		esqueciSenhaButton = new JButton("Esqueci a Senha  :(");
 		esqueciSenhaButton.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		esqueciSenhaButton.setBounds(10, 296, 150, 23);
+		esqueciSenhaButton.setBackground(Color.white);
 		add(esqueciSenhaButton);
 		
 		logarButton = new JButton("Logar já  :)");
 		logarButton.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		logarButton.setBackground(Color.white);
 		logarButton.setBounds(188, 296, 100, 23);
 		add(logarButton);
+		
+		logoImagemLabel = new JLabel();
+		logoImagemLabel.setIcon(new ImageIcon(TelaSite.class.getResource("/imagem/logologin.PNG")));
+		logoImagemLabel.setBounds(0, 0, 313, 586);
+		add(logoImagemLabel);
 		
 	}
 

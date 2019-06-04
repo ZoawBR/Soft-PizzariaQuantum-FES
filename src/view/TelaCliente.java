@@ -16,12 +16,12 @@ public class TelaCliente extends JFrame {
 	private JPanel barraInferiorPanel;
 	
 	public TelaCliente() {
-		setBounds(100, 100, 321, 564);
+		setBounds(100, 100, 321, 584);
 		setLayout(null);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setResizable(false);
-		setBackground(Color.white);
+		setBackground(Color.WHITE);
 		
 		barraInferiorPanel = new JPanel();
 		barraInferiorPanel.setLayout(null);
@@ -49,6 +49,8 @@ public class TelaCliente extends JFrame {
 		contaButton.setBackground(Color.WHITE);
 		contaButton.setBounds(219, 11, 70, 23);
 		barraInferiorPanel.add(contaButton);
+		
+		
 		
 		setVisible(false);
 	}
