@@ -18,6 +18,7 @@ import view.TelaCliente;
 import view.TelaClienteLogado;
 import view.TelaControlePizzaria;
 import view.TelaEstoquePizza;
+import view.TelaHistoricoPedidos;
 import view.TelaLoginCliente;
 import view.TelaLoginFuncionario;
 import view.TelaMensagem;
@@ -39,11 +40,13 @@ public class Controller implements ActionListener {
 	private TelaAtualizarConta telaAtualizarConta;
 	private TelaCadastrarPizza telaCadastrarPizza;
 	private TelaEstoquePizza telaEstoquePizza;
+	private TelaHistoricoPedidos telaHistoricoPedidos;
 		
 	public Controller(TelaCadastrarCliente telaCadastrarCliente, TelaSite telaSite, TelaCliente telaCliente,
 					  TelaLoginCliente telaLoginCliente, TelaPrincipalSoftware telaPrincipalSoftware, TelaClienteLogado telaClienteLogado,
 					  TelaPedirPizza telaPedirPizza, TelaLoginFuncionario telaLoginFuncionario, TelaControlePizzaria telaControlePizzaria,
-					  TelaAtualizarConta telaAtualizarConta, TelaEstoquePizza telaEstoquePizza, TelaCadastrarPizza telaCadastrarPizza) {
+					  TelaAtualizarConta telaAtualizarConta, TelaEstoquePizza telaEstoquePizza, TelaCadastrarPizza telaCadastrarPizza,
+					  TelaHistoricoPedidos telaHistoricoPedidos) {
 		
 		this.telaCadastrarCliente = telaCadastrarCliente;
 		this.telaSite = telaSite;
@@ -57,6 +60,7 @@ public class Controller implements ActionListener {
 		this.telaAtualizarConta = telaAtualizarConta;
 		this.telaCadastrarPizza = telaCadastrarPizza;
 		this.telaEstoquePizza = telaEstoquePizza;
+		this.telaHistoricoPedidos = telaHistoricoPedidos;
 		
 		control();
 	}
@@ -262,9 +266,11 @@ public class Controller implements ActionListener {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println(telaClienteLogado.getCliente().getNome());
+				//System.out.println(telaClienteLogado.getCliente().getNome());
 				telaClienteLogado.setVisible(false);
 				telaPedirPizza.setVisible(true);
+				telaPedirPizza.getCombobox().removeAllItems();
+				
 				for (Pizza pizza : BaseDadosPizza.getBasePizza()) {
 					telaPedirPizza.getCombobox().addItem(pizza.getSabor());
 				}	
@@ -307,26 +313,51 @@ public class Controller implements ActionListener {
 		});
 		
 		//tela pedir pizza
-		telaPedirPizza.getComprarButton().addActionListener(new ActionListener() {
-			int mult;
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (telaPedirPizza.getPequenaPizza().isSelected()) {
-					mult = 1;
-				}else if (telaPedirPizza.getMediaPizza().isSelected()) {
-					mult = 2;
-				}else if (telaPedirPizza.getGrandePizza().isSelected()) {
-					mult = 3;
-				}
-				
-				Pizza pizza = BaseDadosPizza.searchPizza((String) telaPedirPizza.getCombobox().getSelectedItem());
-				int preco = pizza.getPreco() * mult;
-				JOptionPane.showMessageDialog(null, "Valor a ser pago: " + preco);
-				////////////////////////////////////////////////////////////////////////////////////////////////////////
-				telaPedirPizza.setVisible(false);
-				telaClienteLogado.setVisible(true);
-			}
-		});
+				telaPedirPizza.getComprarButton().addActionListener(new ActionListener() {
+					int mult;
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						if (telaPedirPizza.getPequenaPizza().isSelected()) {
+							mult = 1;
+						}
+						else if (telaPedirPizza.getMediaPizza().isSelected()) {
+							mult = 2;
+						}
+						else if (telaPedirPizza.getGrandePizza().isSelected()) {
+							mult = 3;
+						}
+						
+						String tamanho;
+						if (mult == 1) {
+							tamanho = "Pequena";
+						}
+						else if (mult == 2) {
+							tamanho = "Média";
+						}
+						else {
+							tamanho = "Grande";
+						}
+						
+						
+						Pizza pizza = BaseDadosPizza.searchPizza((String) telaPedirPizza.getCombobox().getSelectedItem());
+						int preco = pizza.getPreco() * mult;
+
+						Object [] fila = new Object[5];
+						fila[0] = telaClienteLogado.getCliente().getNome();
+						fila[1] = telaClienteLogado.getCliente().getCpf();
+						fila[2] = pizza.getSabor();
+						fila[3] = tamanho;
+						fila[4] = preco;
+						
+						((DefaultTableModel) telaHistoricoPedidos.getjTable().getModel()).addRow(fila);
+						
+						JOptionPane.showMessageDialog(null, "Valor a ser pago: " + preco);
+						////////////////////////////////////////////////////////////////////////////////////////////////////////
+						telaPedirPizza.setVisible(false);
+						telaClienteLogado.setVisible(true);
+					}
+				});
 		
 		telaPedirPizza.getHomeButton().addActionListener(new ActionListener() {
 			
@@ -347,16 +378,24 @@ public class Controller implements ActionListener {
 			}
 		});
 		
+		telaControlePizzaria.getEstoqueButton().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				telaEstoquePizza.setVisible(true);
+			}
+		});
+		
 		telaAtualizarConta.getAtualizarButton().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				for (Cliente c : BaseDadosCliente.getBaseClientes()) {
-					if (telaClienteLogado.getCliente().getCpf().equals(c.getCpf())) {
-						c.setNome(telaAtualizarConta.getNomefiled().getText());
-						c.setCidade(telaAtualizarConta.getCidadefield().getText());
-						c.setRua(telaAtualizarConta.getNomefiled().getText());
-						c.setCep(telaAtualizarConta.getCepfield().getText());
+				for (Cliente cliente : BaseDadosCliente.getBaseClientes()) {
+					if (telaClienteLogado.getCliente().getCpf().equals(cliente.getCpf())) {
+						cliente.setNome(telaAtualizarConta.getNomefiled().getText());
+						cliente.setCidade(telaAtualizarConta.getCidadefield().getText());
+						cliente.setRua(telaAtualizarConta.getNomefiled().getText());
+						cliente.setCep(telaAtualizarConta.getCepfield().getText());
 						JOptionPane.showMessageDialog(null, "Contato Atualizado!!");
 						telaAtualizarConta.setVisible(false);
 						telaClienteLogado.setVisible(true);
@@ -381,6 +420,14 @@ public class Controller implements ActionListener {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						telaEstoquePizza.setVisible(true);
+					}
+				});
+				
+				telaControlePizzaria.getPedidosButton().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						telaHistoricoPedidos.setVisible(true);
 					}
 				});
 				
