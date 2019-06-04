@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class BaseDadosPizza {
-	private static ArrayList<Pizza> basePizza = new ArrayList<Pizza>();
+	public static ArrayList<Pizza> basePizza = new ArrayList<Pizza>();
 	
 	public static ArrayList<Pizza> getBasePizza() {
 		return basePizza;

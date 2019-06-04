@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 import model.BaseDadosCliente;
 import model.BaseDadosFuncionario;
@@ -12,9 +13,11 @@ import model.Cliente;
 import model.Pizza;
 import view.TelaAtualizarConta;
 import view.TelaCadastrarCliente;
+import view.TelaCadastrarPizza;
 import view.TelaCliente;
 import view.TelaClienteLogado;
 import view.TelaControlePizzaria;
+import view.TelaEstoquePizza;
 import view.TelaLoginCliente;
 import view.TelaLoginFuncionario;
 import view.TelaMensagem;
@@ -34,11 +37,13 @@ public class Controller implements ActionListener {
 	private TelaLoginFuncionario telaLoginFuncionario;
 	private TelaControlePizzaria telaControlePizzaria;
 	private TelaAtualizarConta telaAtualizarConta;
+	private TelaCadastrarPizza telaCadastrarPizza;
+	private TelaEstoquePizza telaEstoquePizza;
 		
 	public Controller(TelaCadastrarCliente telaCadastrarCliente, TelaSite telaSite, TelaCliente telaCliente,
 					  TelaLoginCliente telaLoginCliente, TelaPrincipalSoftware telaPrincipalSoftware, TelaClienteLogado telaClienteLogado,
 					  TelaPedirPizza telaPedirPizza, TelaLoginFuncionario telaLoginFuncionario, TelaControlePizzaria telaControlePizzaria,
-					  TelaAtualizarConta telaAtualizarConta) {
+					  TelaAtualizarConta telaAtualizarConta, TelaEstoquePizza telaEstoquePizza, TelaCadastrarPizza telaCadastrarPizza) {
 		
 		this.telaCadastrarCliente = telaCadastrarCliente;
 		this.telaSite = telaSite;
@@ -50,6 +55,8 @@ public class Controller implements ActionListener {
 		this.telaLoginFuncionario = telaLoginFuncionario;
 		this.telaControlePizzaria = telaControlePizzaria;
 		this.telaAtualizarConta = telaAtualizarConta;
+		this.telaCadastrarPizza = telaCadastrarPizza;
+		this.telaEstoquePizza = telaEstoquePizza;
 		
 		control();
 	}
@@ -359,6 +366,45 @@ public class Controller implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Contato Não Existe");
 			}
 		});
+		
+		// Tela Controle Pizzaria
+				telaControlePizzaria.getCadastroPizzaButton().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						telaCadastrarPizza.setVisible(true);
+					}
+				});
+				
+				telaControlePizzaria.getEstoqueButton().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						telaEstoquePizza.setVisible(true);
+					}
+				});
+				
+				
+				// Tela Cadastrar Pizza
+				telaCadastrarPizza.getCadastrarButton().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Pizza pizza = new Pizza(telaCadastrarPizza.getSaborField().getText(), 
+												Integer.parseInt(telaCadastrarPizza.getCodigoField().getText()), 
+												Integer.parseInt(telaCadastrarPizza.getPrecoField().getText()));
+						
+						//int numeroColunas = telaEstoquePizza.getjTable().getModel().getColumnCount();
+						
+						Object [] fila = new Object[3];
+						fila[0] = pizza.getSabor();
+						fila[1] = pizza.getCodigo();
+						fila[2] = pizza.getPreco();
+						
+						((DefaultTableModel) telaEstoquePizza.getjTable().getModel()).addRow(fila);
+						BaseDadosPizza.basePizza.add(pizza);
+					}
+				});
 	}
 	
 	

@@ -9,9 +9,11 @@ import model.Funcionario;
 import model.Pizza;
 import view.TelaAtualizarConta;
 import view.TelaCadastrarCliente;
+import view.TelaCadastrarPizza;
 import view.TelaCliente;
 import view.TelaClienteLogado;
 import view.TelaControlePizzaria;
+import view.TelaEstoquePizza;
 import view.TelaLoginCliente;
 import view.TelaLoginFuncionario;
 import view.TelaPedirPizza;
@@ -31,6 +33,8 @@ public class App {
 		TelaLoginFuncionario telaLoginFuncionario = new TelaLoginFuncionario();
 		TelaControlePizzaria telaControlePizzaria = new TelaControlePizzaria();
 		TelaAtualizarConta telaAtualizarConta = new TelaAtualizarConta();
+		TelaCadastrarPizza telaCadastrarPizza = new TelaCadastrarPizza();
+		TelaEstoquePizza telaEstoquePizza = new TelaEstoquePizza();
 		
 //		telaPrincipalSoftware.setVisible(false);
 //		telaPedirPizza.setVisible(true);
@@ -49,7 +53,7 @@ public class App {
 		
 		Controller controller = new Controller(telaCadastrarCliente, telaSite, telaCliente, telaLoginCliente,
 											   telaPrincipalSoftware, telaClienteLogado, telaPedirPizza, telaLoginFuncionario, telaControlePizzaria,
-											   telaAtualizarConta);
+											   telaAtualizarConta,telaEstoquePizza,telaCadastrarPizza);
 		
 	}	
 }
