@@ -1,12 +1,15 @@
 package app;
 
+import control.ControleTelaCadastrarCliente;
+import control.ControleTelaClienteLogado;
+import control.ControleTelaLoginCliente;
+import control.ControleTelaPedirPizza;
+import control.ControleTelaSite;
 import control.Controller;
 import model.BaseDadosCliente;
 import model.BaseDadosFuncionario;
-import model.BaseDadosPizza;
 import model.Cliente;
 import model.Funcionario;
-import model.Pizza;
 import view.TelaAtualizarConta;
 import view.TelaCadastrarBebida;
 import view.TelaCadastrarCliente;
@@ -64,5 +67,11 @@ public class App {
 											   telaAtualizarConta,telaEstoquePizza,telaCadastrarPizza,telaHistoricoPedidos,
 											   telaRelatorioDia, telaRelacaoClientes, telaCadastrarBebida);
 		
+		// organizando os controles depos excluir o de cima
+//		ControleTelaCadastrarCliente conTelaCadastrarCliete = new ControleTelaCadastrarCliente(telaCadastrarCliente, telaRelacaoClientes, telaSite);
+//		ControleTelaSite conTelaSite = new ControleTelaSite(telaSite, telaCadastrarCliente, telaLoginCliente);
+//		ControleTelaLoginCliente conTelaLoginCliente = new ControleTelaLoginCliente(telaLoginCliente, telaSite, telaClienteLogado);
+//		ControleTelaClienteLogado conTelaClienteLogado = new ControleTelaClienteLogado(telaClienteLogado, telaPedirPizza, telaSite, telaAtualizarConta);
+//		ControleTelaPedirPizza conTelaPedirPizza = new ControleTelaPedirPizza(telaPedirPizza, telaRelatorioDia, telaClienteLogado, telaHistoricoPedidos);
 	}	
 }

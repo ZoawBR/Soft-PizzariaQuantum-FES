@@ -57,12 +57,12 @@ public class Controller implements ActionListener {
 					  TelaHistoricoPedidos telaHistoricoPedidos, TelaRelatorioDia telaRelatorioDia,
 					  TelaRelacaoClientes telaRelacaoClientes, TelaCadastrarBebida telaCadastrarBebida) {
 		
-		this.telaCadastrarCliente = telaCadastrarCliente;
-		this.telaSite = telaSite;
-		this.telaCliente = telaCliente;
-		this.telaLoginCliente = telaLoginCliente;
+		this.telaCadastrarCliente = telaCadastrarCliente; //
+		this.telaSite = telaSite; //
+		this.telaCliente = telaCliente;//
+		this.telaLoginCliente = telaLoginCliente;//
 		this.telaPrincipalSoftware = telaPrincipalSoftware;
-		this.telaClienteLogado = telaClienteLogado;
+		this.telaClienteLogado = telaClienteLogado;//
 		this.telaPedirPizza = telaPedirPizza;
 		this.telaLoginFuncionario = telaLoginFuncionario;
 		this.telaControlePizzaria = telaControlePizzaria;
@@ -222,7 +222,7 @@ public class Controller implements ActionListener {
 		});
 		
 		
-		// Tela Site
+//		// Tela Site
 		telaSite.getCadastrarButton().addActionListener(new ActionListener() {
 			
 			@Override
@@ -243,7 +243,7 @@ public class Controller implements ActionListener {
 		
 		
 		
-		// Tela Login Cliente
+//		// Tela Login Cliente
 		telaLoginCliente.getHomeButton().addActionListener(new ActionListener() {
 			
 			@Override
@@ -345,7 +345,7 @@ public class Controller implements ActionListener {
 			}
 		});
 		
-		//tela pedir pizza
+//		//tela pedir pizza
 		telaPedirPizza.getComprarButton().addActionListener(new ActionListener() {
 			int mult;
 			int qntPizzas = 0; int qntBebidas; int precoTotal = 0;
